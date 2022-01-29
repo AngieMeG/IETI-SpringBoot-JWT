@@ -18,13 +18,13 @@ import edu.eci.ieti.UsersRestAPI.service.UserService;
 public class UserServicehashMap implements UserService{
 
     HashMap<String, User> usersMap = new HashMap<>();
-    private static final AtomicInteger generatedId = new AtomicInteger(1);
+    private static final AtomicInteger generatedId = new AtomicInteger(0);
     private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");  
     
     @Override
     public User create(User user) throws UserException {
         for(User savedUser : usersMap.values()) {
-            if (savedUser.getEmail().equals(user.getEmail())){
+            if (savedUser.equals(user)) {
                 throw new UserException(UserException.CREATE_USER_EXCEPTION);
             }
         }
@@ -39,6 +39,7 @@ public class UserServicehashMap implements UserService{
     public User findById(String id) throws UserException {
         User user = usersMap.get(id);
         if (user == null) throw new UserException(UserException.USER_DOESNT_EXIST);
+
         return usersMap.get(id);
     }
 
@@ -65,10 +66,12 @@ public class UserServicehashMap implements UserService{
             usersMap.put(userId, user);
             updatedUser = user;
         } else{throw new UserException(UserException.USER_DOESNT_EXIST);}
+
         return updatedUser;
     }
     
     private String formatCurrentDateToString(){
+
         return dtf.format(LocalDateTime.now()).toString();
     }
 }

@@ -22,6 +22,7 @@ import edu.eci.ieti.UsersRestAPI.service.UserService;
 @RestController
 @RequestMapping( "/v1/user" )
 public class UserController{
+    
     private final UserService userService;
 
 	public UserController(@Autowired UserService userService) {

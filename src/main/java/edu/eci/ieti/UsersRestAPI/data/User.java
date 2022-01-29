@@ -65,4 +65,12 @@ public class User {
     public String toString(){
         return "Id: " + id + ", Name: " + name + ", Email: " + email + ", lastName: " + lastName + ", CreatedAt: " + createdAt;
     }
+
+    public boolean equals(User user){
+        boolean areEquals = false;
+        if(this.getEmail().equals(user.getEmail())){
+                areEquals = true;
+            }
+        return areEquals;
+    }
 }
