@@ -1,15 +1,24 @@
 package edu.eci.ieti.UsersRestAPI.data;
 
-import java.util.Date;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import edu.eci.ieti.UsersRestAPI.dto.UserDto;
 
+@Document
 public class User {
 
+    @Id
     private String id;
+
     private String name;
+
+    @Indexed( unique = true )
     private String email;
+
     private String lastName;
+    
     private String createdAt;
 
     public User(){
@@ -34,7 +43,7 @@ public class User {
         this.email = email;
     }
 
-    public void setLastname(String lastName){
+    public void setLastName(String lastName){
         this.lastName = lastName;
     }
 
@@ -67,10 +76,6 @@ public class User {
     }
 
     public boolean equals(User user){
-        boolean areEquals = false;
-        if(this.getEmail().equals(user.getEmail())){
-                areEquals = true;
-            }
-        return areEquals;
+        return this.getEmail().equals(user.getEmail());
     }
 }

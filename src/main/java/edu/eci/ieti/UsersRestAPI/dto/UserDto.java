@@ -3,7 +3,9 @@ package edu.eci.ieti.UsersRestAPI.dto;
 public class UserDto {
 
     private String name;
+
     private String email;
+
     private String lastName;
 
     public UserDto(){
@@ -18,7 +20,7 @@ public class UserDto {
         this.email = email;
     }
 
-    public void setLastname(String lastName){
+    public void setLastName(String lastName){
         this.lastName = lastName;
     }
 
