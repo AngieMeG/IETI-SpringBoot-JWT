@@ -9,12 +9,14 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import edu.eci.ieti.UsersRestAPI.data.User;
 import edu.eci.ieti.UsersRestAPI.exception.UserException;
 import edu.eci.ieti.UsersRestAPI.service.UserService;
 
 @Service
+@Qualifier("HashMapImpl")
 public class UserServicehashMap implements UserService{
 
     HashMap<String, User> usersMap = new HashMap<>();
