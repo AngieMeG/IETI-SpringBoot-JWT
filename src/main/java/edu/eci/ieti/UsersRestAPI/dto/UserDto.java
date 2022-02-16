@@ -8,6 +8,8 @@ public class UserDto {
 
     private String lastName;
 
+    private String password;
+
     public UserDto(){
 
     }
@@ -35,6 +37,8 @@ public class UserDto {
     public String getLastName(){
         return lastName;
     }
+
+    public String getPassword() { return password; }
 
     public String toString(){
         return "Name: " + name + ", Email: " + email + ", Last Name:" + lastName;

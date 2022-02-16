@@ -5,6 +5,9 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import edu.eci.ieti.UsersRestAPI.dto.UserDto;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
+import java.util.List;
 
 @Document
 public class User {
@@ -21,6 +24,10 @@ public class User {
     
     private String createdAt;
 
+    private String passwordHash;
+
+    private List<RoleEnum> roles;
+
     public User(){
 
     }
@@ -29,6 +36,7 @@ public class User {
         name = user.getName();
         email = user.getEmail();
         lastName = user.getLastName();
+        this.passwordHash = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
     }
 
     public void setId(String id){
@@ -71,11 +79,24 @@ public class User {
         return createdAt;
     }
 
+    public String getPasswordHash() { return passwordHash; }
+
+    public List<RoleEnum> getRoles() { return roles; }
+
     public String toString(){
         return "Id: " + id + ", Name: " + name + ", Email: " + email + ", lastName: " + lastName + ", CreatedAt: " + createdAt;
     }
 
     public boolean equals(User user){
         return this.getEmail().equals(user.getEmail());
+    }
+
+    public void update(UserDto user){
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.lastName = user.getLastName();
+        if (user.getPassword() != null) {
+            this.passwordHash = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+        }
     }
 }

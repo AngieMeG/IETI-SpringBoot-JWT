@@ -46,6 +46,11 @@ public class UserServicehashMap implements UserService{
     }
 
     @Override
+    public User findByEmail(String email) throws UserException {
+        return null;
+    }
+
+    @Override
     public List<User> getAll() {
 
         return new ArrayList<>(usersMap.values());

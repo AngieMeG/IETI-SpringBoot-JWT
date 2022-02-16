@@ -11,9 +11,12 @@ public interface UserService {
 
     User findById( String id ) throws UserException;
 
+    User findByEmail( String email ) throws UserException;
+
     List<User> getAll();
 
     void deleteById( String id ) throws UserException;
 
     User update( User user, String userId ) throws UserException;
+
 }

@@ -49,6 +49,14 @@ public class UserServiceMongoDB implements UserService{
     }
 
     @Override
+    public User findByEmail(String email) throws UserException {
+        User user = userRepository.getUserByEmail(email);
+        if (user == null) throw new UserException(UserException.USER_DOESNT_EXIST);
+
+        return user;
+    }
+
+    @Override
     public List<User> getAll() {
 
         return userRepository.findAll();
