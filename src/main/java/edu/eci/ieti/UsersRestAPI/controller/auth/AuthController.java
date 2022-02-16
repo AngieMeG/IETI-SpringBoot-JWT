@@ -16,8 +16,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import static edu.eci.ieti.UsersRestAPI.data.utils.Constants.CLAIMS_ROLES_KEY;
 import static edu.eci.ieti.UsersRestAPI.data.utils.Constants.TOKEN_DURATION_MINUTES;
 

@@ -1,4 +1,4 @@
-package edu.eci.ieti.UsersRestAPI.repository;
+package edu.eci.ieti.UsersRestAPI.service.impl.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import edu.eci.ieti.UsersRestAPI.data.User;

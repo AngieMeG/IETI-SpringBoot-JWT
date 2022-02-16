@@ -20,6 +20,8 @@ import edu.eci.ieti.UsersRestAPI.dto.UserDto;
 import edu.eci.ieti.UsersRestAPI.exception.UserException;
 import edu.eci.ieti.UsersRestAPI.service.UserService;
 
+import javax.annotation.security.RolesAllowed;
+
 @RestController
 @RequestMapping( "/v1/user" )
 public class UserController{
@@ -64,6 +66,7 @@ public class UserController{
     }
 
     @DeleteMapping( "/{id}" )
+    @RolesAllowed("ADMIN")
     public ResponseEntity<Boolean> delete( @PathVariable String id ) {
         try{
             userService.deleteById(id);

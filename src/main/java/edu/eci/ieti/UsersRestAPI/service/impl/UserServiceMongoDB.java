@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.eci.ieti.UsersRestAPI.data.User;
 import edu.eci.ieti.UsersRestAPI.exception.UserException;
-import edu.eci.ieti.UsersRestAPI.repository.UserRepository;
+import edu.eci.ieti.UsersRestAPI.service.impl.repository.UserRepository;
 import edu.eci.ieti.UsersRestAPI.service.UserService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
